@@ -28,17 +28,17 @@
 <div class="reveal">
 <div class="slides">
 <section>
-<section id="slide-org948be72">
-<h2 id="org948be72">Francisco Cantu: The Fingerprints of Fraud</h2>
+<section id="slide-orgb349f41">
+<h2 id="orgb349f41">Francisco Cantu: The Fingerprints of Fraud</h2>
 <p>
-Discussion by Florian M Hollenbach (no neural networks expert)
+Discussion by Florian M Hollenbach (not a neural networks expert)
 </p>
 
 </section>
 </section>
 <section>
-<section id="slide-orga752275">
-<h2 id="orga752275">Deep Learning</h2>
+<section id="slide-org71b715d">
+<h2 id="org71b715d">Deep Learning</h2>
 <ul>
 <li>Super interesting (&amp; complicated)  method</li>
 
@@ -51,10 +51,31 @@ Discussion by Florian M Hollenbach (no neural networks expert)
 </section>
 </section>
 <section>
-<section id="slide-org09518d7">
-<h2 id="org09518d7">The paper</h2>
+<section id="slide-orgaa32389">
+<h2 id="orgaa32389">Deep Learning is evil</h2>
+
+<div id="org9bab190" class="figure">
+<p><img src="file:///Users/florianhollenbach/Desktop/0*91AdFFaxnD7YB3mI.png" alt="0*91AdFFaxnD7YB3mI.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org01aff44">
+<h2 id="org01aff44">The paper</h2>
 <ul>
 <li>Can we infer election fraud from altered tallies using machine learning?</li>
+<li>Using results to infer covariates that increase likelihood of fraud</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org93651e9">
+<h2 id="org93651e9">The paper</h2>
+<ul>
 <li>53,000 images of vote tally sheets at the polling station level</li>
 <li>Image recognition via convolutional neural networks to identify tallys that have been altered</li>
 <li>training set of 900, validation set of 125</li>
@@ -64,13 +85,15 @@ Discussion by Florian M Hollenbach (no neural networks expert)
 </section>
 </section>
 <section>
-<section id="slide-orgc6f28cb">
-<h2 id="orgc6f28cb">What is the target audience/framing</h2>
+<section id="slide-org007e979">
+<h2 id="org007e979">What is the target audience/framing</h2>
 <ol>
-<li>Methods crowd/Political Analysis?</li>
+<li>Methods crowd/Political Analysis or PSRM?</li>
 <li>Applied/general topic journal?</li>
 
 </ol>
+
+
 <ul>
 <li>As of now, paper is kind of caught in the middle</li>
 
@@ -79,19 +102,19 @@ Discussion by Florian M Hollenbach (no neural networks expert)
 </section>
 </section>
 <section>
-<section id="slide-orgb555321">
-<h2 id="orgb555321">What is the target audience/framing</h2>
+<section id="slide-org07dab0f">
+<h2 id="org07dab0f">What is the target audience/framing</h2>
 <ul>
-<li>Emphasize difference to existing fraud detection methods:
-<b><b>You can identify where exact instances of fraud</b></b></li>
+<li>Emphasize contribution/difference to existing fraud detection methods:
+<b><b>You can identify where exactly fraud happened</b></b></li>
 
 </ul>
 
 </section>
 </section>
 <section>
-<section id="slide-org6a380ac">
-<h2 id="org6a380ac">Convolutional Neural Network</h2>
+<section id="slide-orgeaf1a7c">
+<h2 id="orgeaf1a7c">Convolutional Neural Network</h2>
 <ul>
 <li>It is really hard to follow the explanation of the CNN</li>
 <li>In part because the terminology is so different</li>
@@ -105,8 +128,8 @@ Discussion by Florian M Hollenbach (no neural networks expert)
 </section>
 </section>
 <section>
-<section id="slide-org8b84ad6">
-<h2 id="org8b84ad6">CNN</h2>
+<section id="slide-org2678328">
+<h2 id="org2678328">CNN</h2>
 <p>
 How can one explain convolutional neural networks to a (general) polisci  audience?
 </p>
@@ -115,10 +138,10 @@ How can one explain convolutional neural networks to a (general) polisci  audien
 </section>
 </section>
 <section>
-<section id="slide-org1a76dd9">
-<h2 id="org1a76dd9">Start with simple image recognition</h2>
+<section id="slide-org1840521">
+<h2 id="org1840521">Start with simple image recognition</h2>
 <ul>
-<li>Each image is represented in W x H X RBG numbers, where RBG areranges from 0 (black) to 255 (white)</li>
+<li>Each image is represented in W x H X RBG numbers, where RBG ranges from 0 (black) to 255 (white)</li>
 <li>Here: 227 * 227 * 3</li>
 
 </ul>
@@ -126,10 +149,10 @@ How can one explain convolutional neural networks to a (general) polisci  audien
 </section>
 </section>
 <section>
-<section id="slide-org6fa3bc2">
-<h2 id="org6fa3bc2">Start simple</h2>
+<section id="slide-orgb350f91">
+<h2 id="orgb350f91">Start simple</h2>
 <ul>
-<li>Easiest way to classify, would be to compare each pixel</li>
+<li>Easiest way to classify, would be to compare each pixel (i.e, 51,529)</li>
 <li>E.g. L1 distance \[d_{1}(I_{1}, I_{2}) = \Sigma_{p}\mid I_{1}^{p} - I_{2}^{p}\mid\] or L2 (euclidian) \[d_{2}(I_{1}, I_{2}) = \Sigma_{p} \sqrt{ ( I_{1}^{p} - I_{2}^{p})}\]</li>
 
 </ul>
@@ -143,8 +166,8 @@ Enter speaker notes here.
 </section>
 </section>
 <section>
-<section id="slide-orgfbd088b">
-<h2 id="orgfbd088b">Start simple</h2>
+<section id="slide-orgc8ad4c6">
+<h2 id="orgc8ad4c6">Start simple</h2>
 <p>
 Next:
 </p>
@@ -156,15 +179,15 @@ Next:
 
 </ul></li>
 <li>Then introduce ( simple) neural networks</li>
-<li>Lastly, move on to convoluted</li>
+<li>Lastly, move on to convolutional</li>
 
 </ul>
 
 </section>
 </section>
 <section>
-<section id="slide-org82195cc">
-<h2 id="org82195cc">More detail on CNN computation</h2>
+<section id="slide-org0e6a372">
+<h2 id="org0e6a372">More detail on CNN computation</h2>
 <ul>
 <li>How is it run?</li>
 <li>How long does it take?</li>
@@ -175,12 +198,12 @@ Next:
 </section>
 </section>
 <section>
-<section id="slide-org45cce0d">
-<h2 id="org45cce0d">Case selection into training set</h2>
+<section id="slide-orgaf82614">
+<h2 id="orgaf82614">Case selection into training set</h2>
 <ul>
 <li>How was the training set selected?
 <ul>
-<li>surprising that 50% were altered</li>
+<li>surprising that 50% were altered tallies</li>
 
 </ul></li>
 
@@ -192,8 +215,8 @@ Next:
 </section>
 </section>
 <section>
-<section id="slide-orga4e88e5">
-<h2 id="orga4e88e5">Validation set vs test set</h2>
+<section id="slide-org9b289b7">
+<h2 id="org9b289b7">Validation set vs test set</h2>
 <ul>
 <li>Hyperparameters set based on results in validation set?</li>
 <li>It would be nice to have a small  test set with <i><i>true</i></i> alterations to evaluate accuracy</li>
@@ -203,40 +226,58 @@ Next:
 </section>
 </section>
 <section>
-<section id="slide-org784eecf">
-<h2 id="org784eecf">Two problems with the general set up:</h2>
+<section id="slide-org6e8d012">
+<h2 id="org6e8d012">Two problems with the general set up:</h2>
 <ol>
 <li>How do we know that alterations are fraud?</li>
-
-</ol>
-<ol>
 <li>What if tally is totally replaced?</li>
 
 </ol>
-
-
-
-
-</section>
-</section>
-<section>
-<section id="slide-org1fcc24f">
-<h2 id="org1fcc24f">Second part of paper</h2>
 <ul>
-<li>Is there a way to get an uncertainty estimate for predictions?</li>
-<li>Spatial dependence in the DV?</li>
+<li>I have no solution</li>
 
 </ul>
 
 </section>
 </section>
 <section>
-<section id="slide-orgb16f667">
-<h2 id="orgb16f667">Connect with Me</h2>
+<section id="slide-orgd894e83">
+<h2 id="orgd894e83">Minimizing false positives</h2>
 <ul>
-<li>Web: [YOUR WEBSITE]</li>
-<li>Twitter: [YOUR TWITTER HANDLE]</li>
-<li>Blog: [YOUR BLOG]</li>
+<li>Makes sense for purely descriptive exercise</li>
+<li>Does this change once we use outcome as a DV in second part of the paper?</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org6473b72">
+<h2 id="org6473b72">Second part of paper</h2>
+<ul>
+<li>How much can we trust individual classifications?</li>
+<li>Is there a way to get an uncertainty estimate for predictions?</li>
+<li>Spatial dependence in the DV?</li>
+
+</ul>
+
+
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgb2ea69a">
+<h2 id="orgb2ea69a">END</h2>
+<p>
+eb: [YOUR WEBSITE]
+</p>
+<ul>
+<li>Twitter: [YOUR TWITTER HANDLE</li>
 
 </ul>
 </section>
@@ -255,7 +296,7 @@ controls: true,
 progress: true,
 history: false,
 center: true,
-slideNumber: 'c',
+slideNumber: 'h/v',
 rollingLinks: false,
 keyboard: true,
 overview: true,
