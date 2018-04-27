@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Francisco Cantu: The Fingerprints of Fraud</title>
+<meta name="author" content="([Florian M Hollenbach])"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:///Users/florianhollenbach/.emacs.d/reveal.js-3.6.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="file:///Users/florianhollenbach/.emacs.d/reveal.js-3.6.0/css/theme/white.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file:///Users/florianhollenbach/.emacs.d/reveal.js-3.6.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<section id="slide-org948be72">
+<h2 id="org948be72">Francisco Cantu: The Fingerprints of Fraud</h2>
+<p>
+Discussion by Florian M Hollenbach (no neural networks expert)
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orga752275">
+<h2 id="orga752275">Deep Learning</h2>
+<ul>
+<li>Super interesting (&amp; complicated)  method</li>
+
+</ul>
+<ul>
+<li>Great paper with impressive data collection</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org09518d7">
+<h2 id="org09518d7">The paper</h2>
+<ul>
+<li>Can we infer election fraud from altered tallies using machine learning?</li>
+<li>53,000 images of vote tally sheets at the polling station level</li>
+<li>Image recognition via convolutional neural networks to identify tallys that have been altered</li>
+<li>training set of 900, validation set of 125</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc6f28cb">
+<h2 id="orgc6f28cb">What is the target audience/framing</h2>
+<ol>
+<li>Methods crowd/Political Analysis?</li>
+<li>Applied/general topic journal?</li>
+
+</ol>
+<ul>
+<li>As of now, paper is kind of caught in the middle</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb555321">
+<h2 id="orgb555321">What is the target audience/framing</h2>
+<ul>
+<li>Emphasize difference to existing fraud detection methods:
+<b><b>You can identify where exact instances of fraud</b></b></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org6a380ac">
+<h2 id="org6a380ac">Convolutional Neural Network</h2>
+<ul>
+<li>It is really hard to follow the explanation of the CNN</li>
+<li>In part because the terminology is so different</li>
+
+</ul>
+<ul>
+<li>we need more (dumbed down) details on the CNN</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org8b84ad6">
+<h2 id="org8b84ad6">CNN</h2>
+<p>
+How can one explain convolutional neural networks to a (general) polisci  audience?
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org1a76dd9">
+<h2 id="org1a76dd9">Start with simple image recognition</h2>
+<ul>
+<li>Each image is represented in W x H X RBG numbers, where RBG areranges from 0 (black) to 255 (white)</li>
+<li>Here: 227 * 227 * 3</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org6fa3bc2">
+<h2 id="org6fa3bc2">Start simple</h2>
+<ul>
+<li>Easiest way to classify, would be to compare each pixel</li>
+<li>E.g. L1 distance \[d_{1}(I_{1}, I_{2}) = \Sigma_{p}\mid I_{1}^{p} - I_{2}^{p}\mid\] or L2 (euclidian) \[d_{2}(I_{1}, I_{2}) = \Sigma_{p} \sqrt{ ( I_{1}^{p} - I_{2}^{p})}\]</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+Enter speaker notes here.
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-orgfbd088b">
+<h2 id="orgfbd088b">Start simple</h2>
+<p>
+Next:
+</p>
+<ul>
+<li>linear classification model \[f(x_{i}, W, b)  = Wx_{i} + b\]
+<ul>
+<li>where W is a weights matrix, b a bias vector</li>
+<li>minimizing loss function via optimization</li>
+
+</ul></li>
+<li>Then introduce ( simple) neural networks</li>
+<li>Lastly, move on to convoluted</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org82195cc">
+<h2 id="org82195cc">More detail on CNN computation</h2>
+<ul>
+<li>How is it run?</li>
+<li>How long does it take?</li>
+<li>More handholding for the reader</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org45cce0d">
+<h2 id="org45cce0d">Case selection into training set</h2>
+<ul>
+<li>How was the training set selected?
+<ul>
+<li>surprising that 50% were altered</li>
+
+</ul></li>
+
+<li>Why such a small validation set?</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orga4e88e5">
+<h2 id="orga4e88e5">Validation set vs test set</h2>
+<ul>
+<li>Hyperparameters set based on results in validation set?</li>
+<li>It would be nice to have a small  test set with <i><i>true</i></i> alterations to evaluate accuracy</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org784eecf">
+<h2 id="org784eecf">Two problems with the general set up:</h2>
+<ol>
+<li>How do we know that alterations are fraud?</li>
+
+</ol>
+<ol>
+<li>What if tally is totally replaced?</li>
+
+</ol>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-org1fcc24f">
+<h2 id="org1fcc24f">Second part of paper</h2>
+<ul>
+<li>Is there a way to get an uncertainty estimate for predictions?</li>
+<li>Spatial dependence in the DV?</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb16f667">
+<h2 id="orgb16f667">Connect with Me</h2>
+<ul>
+<li>Web: [YOUR WEBSITE]</li>
+<li>Twitter: [YOUR TWITTER HANDLE]</li>
+<li>Blog: [YOUR BLOG]</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="file:///Users/florianhollenbach/.emacs.d/reveal.js-3.6.0/lib/js/head.min.js"></script>
+<script src="file:///Users/florianhollenbach/.emacs.d/reveal.js-3.6.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'file:///Users/florianhollenbach/.emacs.d/reveal.js-3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'file:///Users/florianhollenbach/.emacs.d/reveal.js-3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///Users/florianhollenbach/.emacs.d/reveal.js-3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///Users/florianhollenbach/.emacs.d/reveal.js-3.6.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'file:///Users/florianhollenbach/.emacs.d/reveal.js-3.6.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
